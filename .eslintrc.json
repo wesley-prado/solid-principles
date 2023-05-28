@@ -1,8 +1,9 @@
 {
-  "env": {
-    "node": true
-  },
-  "rules": {
-    "quotes": [2, "single", { "avoidEscape": true }]
-  }
+	"env": {
+		"node": true
+	},
+	"rules": {
+		"quotes": [2, "single", { "avoidEscape": true }],
+		"space-in-parens": "error"
+	}
 }
