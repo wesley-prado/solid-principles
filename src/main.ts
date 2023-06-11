@@ -1,8 +1,8 @@
-import Order from './lsp/classes/Order';
-import Product from './lsp/classes/Product';
-import ShoppingCart from './lsp/classes/ShoppingCart';
-import Formatter from './lsp/adapters/FormatterAdapter';
-import { TenPercentDiscount } from './lsp/classes/Discount';
+import Order from './isp/classes/Order';
+import Product from './isp/classes/Product';
+import ShoppingCart from './isp/classes/ShoppingCart';
+import Formatter from './isp/adapters/FormatterAdapter';
+import { TenPercentDiscount } from './isp/classes/Discount';
 
 const cart = new ShoppingCart(new Formatter(), new TenPercentDiscount());
 const order = new Order(cart);
