@@ -1,4 +1,5 @@
 import ShoppingCart from './ShoppingCart';
+import { ICustomer } from './interfaces/ICustomer';
 
 enum CartStatus {
 	OPEN = 'open',
@@ -8,9 +9,11 @@ enum CartStatus {
 export default class Order {
 	private _cartStatus: CartStatus = CartStatus.OPEN;
 	private readonly _shoppingCart: ShoppingCart;
+	private readonly _customer: ICustomer;
 
-	constructor(cart: ShoppingCart) {
+	constructor(cart: ShoppingCart, customer: ICustomer) {
 		this._shoppingCart = cart;
+		this._customer = customer;
 	}
 
 	checkout(): void {
@@ -35,5 +38,13 @@ export default class Order {
 
 	get cart(): ShoppingCart {
 		return this._shoppingCart;
+	}
+
+	get customerName(): string {
+		return this._customer.getName();
+	}
+
+	get customerIDN(): string {
+		return this._customer.getIDN();
 	}
 }

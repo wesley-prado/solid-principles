@@ -1,18 +1,25 @@
-export interface IFisicalPersonCustomer{
+export interface ICustomer {
+	id: string;
+
+	getName(): string;
+	getIDN(): string;
+}
+
+export interface IPhysicalPersonCustomer {
 	firstName: string;
 	lastName: string;
 	cpf: string;
 }
 
 export enum IndustryEnum {
-	'IT',
-	'Finance',
-	'Health',
-	'Food',
-	'Education',
-	'Other'
+	IT = 'IT',
+	Finance = 'Finance',
+	Health = 'Health',
+	Food = 'Food',
+	Education = 'Education',
+	Other = 'Other',
 }
-export interface ILegalPersonCustomer{
+export interface ILegalPersonCustomer {
 	fantasyName: string;
 	cnpj: string;
 	industry: IndustryEnum;

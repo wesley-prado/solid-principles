@@ -2,9 +2,9 @@
 export abstract class Discount {
 	constructor(protected readonly discount: number = 0) {}
 
-	calculate(price: number): number{
+	calculate(price: number): number {
 		return price - price * (this.discount / 100);
-	};
+	}
 }
 
 export class FiftyPercentDiscount extends Discount {

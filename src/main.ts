@@ -2,10 +2,17 @@ import Order from './isp/classes/Order';
 import Product from './isp/classes/Product';
 import ShoppingCart from './isp/classes/ShoppingCart';
 import Formatter from './isp/adapters/FormatterAdapter';
+import { PhysicalPersonCustomer } from './isp/classes/Customer';
 import { TenPercentDiscount } from './isp/classes/Discount';
 
 const cart = new ShoppingCart(new Formatter(), new TenPercentDiscount());
-const order = new Order(cart);
+const physicalPerson = new PhysicalPersonCustomer(
+	'Wesley',
+	'Prado',
+	'123.456.789-00'
+);
+
+const order = new Order(cart, physicalPerson);
 
 cart.addItem(new Product('1', 'Café', 14.99));
 cart.addItem(new Product('2', 'Arroz', 26.25));
@@ -21,7 +28,5 @@ cart.addItem(new Product('11', 'Óleo', 6.4));
 
 console.log(order.total());
 console.log(order.totalWithDiscount());
-cart.removeItem('6');
-
-console.log(order.total());
-console.log(order.cart.items)
+console.log(order.customerName);
+console.log(order.customerIDN);
