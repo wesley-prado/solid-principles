@@ -1,4 +1,4 @@
-import { IObjectRepository } from '../entities/interfaces';
+import { IObjectRepository } from '../classes/interfaces';
 
 export default class OrderRepository implements IObjectRepository {
 	save<Order>(record: Order): void {

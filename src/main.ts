@@ -1,18 +1,20 @@
 import Order from './dip/classes/Order';
 import Product from './dip/classes/Product';
 import ShoppingCart from './dip/classes/ShoppingCart';
+import OrderRepository from './dip/repository/OrderRepository';
 import Formatter from './dip/adapters/FormatterAdapter';
 import { PhysicalPersonCustomer } from './dip/classes/Customer';
 import { TenPercentDiscount } from './dip/classes/Discount';
 
 const cart = new ShoppingCart(new Formatter(), new TenPercentDiscount());
+const orderRepository = new OrderRepository();
 const physicalPerson = new PhysicalPersonCustomer(
 	'Wesley',
 	'Prado',
 	'123.456.789-00'
 );
 
-const order = new Order(cart, physicalPerson);
+const order = new Order(cart, orderRepository, physicalPerson);
 
 cart.addItem(new Product('1', 'Café', 14.99));
 cart.addItem(new Product('2', 'Arroz', 26.25));
@@ -30,3 +32,4 @@ console.log(order.total());
 console.log(order.totalWithDiscount());
 console.log(order.customerName);
 console.log(order.customerIDN);
+console.log(order.checkout());

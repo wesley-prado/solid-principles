@@ -1,5 +1,6 @@
 import ShoppingCart from './ShoppingCart';
 import { ICustomer } from './interfaces/ICustomer';
+import OrderRepository from '../repository/OrderRepository';
 
 enum CartStatus {
 	OPEN = 'open',
@@ -9,15 +10,22 @@ enum CartStatus {
 export default class Order {
 	private _cartStatus: CartStatus = CartStatus.OPEN;
 	private readonly _shoppingCart: ShoppingCart;
+	private readonly _repository: OrderRepository;
 	private readonly _customer: ICustomer;
 
-	constructor(cart: ShoppingCart, customer: ICustomer) {
+	constructor(
+		cart: ShoppingCart,
+		repository: OrderRepository,
+		customer: ICustomer
+	) {
 		this._shoppingCart = cart;
+		this._repository = repository;
 		this._customer = customer;
 	}
 
 	checkout(): void {
 		this.closeOrder();
+		this.saveOrder();
 	}
 
 	total(): number {
@@ -28,8 +36,12 @@ export default class Order {
 		return this._shoppingCart.totalWithDiscount();
 	}
 
-	private closeOrder() {
+	private closeOrder(): void {
 		this._cartStatus = CartStatus.CLOSED;
+	}
+
+	private saveOrder(): void {
+		this._repository.save(this);
 	}
 
 	get status(): Readonly<CartStatus> {
