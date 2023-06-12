@@ -1,9 +1,9 @@
-import Order from './isp/classes/Order';
-import Product from './isp/classes/Product';
-import ShoppingCart from './isp/classes/ShoppingCart';
-import Formatter from './isp/adapters/FormatterAdapter';
-import { PhysicalPersonCustomer } from './isp/classes/Customer';
-import { TenPercentDiscount } from './isp/classes/Discount';
+import Order from './dip/classes/Order';
+import Product from './dip/classes/Product';
+import ShoppingCart from './dip/classes/ShoppingCart';
+import Formatter from './dip/adapters/FormatterAdapter';
+import { PhysicalPersonCustomer } from './dip/classes/Customer';
+import { TenPercentDiscount } from './dip/classes/Discount';
 
 const cart = new ShoppingCart(new Formatter(), new TenPercentDiscount());
 const physicalPerson = new PhysicalPersonCustomer(
