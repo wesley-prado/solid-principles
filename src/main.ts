@@ -15,19 +15,18 @@ const physicalPerson = new PhysicalPersonCustomer(
 );
 
 const order = new Order(cart, orderRepository, physicalPerson);
-
 const products = [
-	{ id: '1', name: 'Café', price: 14.99 },
-	{ id: '2', name: 'Arroz', price: 26.25 },
-	{ id: '3', name: 'Feijão', price: 6.4 },
-	{ id: '4', name: 'Macarrão', price: 3.8 },
-	{ id: '5', name: 'Carne', price: 35.4 },
-	{ id: '6', name: 'Cerveja', price: 3.4 },
-	{ id: '7', name: 'Pão', price: 2.85 },
-	{ id: '8', name: 'Leite', price: 4.69 },
-	{ id: '9', name: 'Açucar', price: 14.25 },
-	{ id: '10', name: 'Sal', price: 1.4 },
-	{ id: '11', name: 'Óleo', price: 6.4 },
+	{ id: '1', name: 'Coffee', price: 14.99 },
+	{ id: '2', name: 'Rice', price: 26.25 },
+	{ id: '3', name: 'Beans', price: 6.4 },
+	{ id: '4', name: 'Pasta', price: 3.8 },
+	{ id: '5', name: 'Meat', price: 35.4 },
+	{ id: '6', name: 'Beer', price: 3.4 },
+	{ id: '7', name: 'Bread', price: 2.85 },
+	{ id: '8', name: 'Milk', price: 4.69 },
+	{ id: '9', name: 'Sugar', price: 14.25 },
+	{ id: '10', name: 'Salt', price: 1.4 },
+	{ id: '11', name: 'Oil', price: 6.4 },
 ];
 
 products.forEach((product) => {
