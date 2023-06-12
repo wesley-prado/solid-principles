@@ -16,17 +16,23 @@ const physicalPerson = new PhysicalPersonCustomer(
 
 const order = new Order(cart, orderRepository, physicalPerson);
 
-cart.addItem(new Product('1', 'Café', 14.99));
-cart.addItem(new Product('2', 'Arroz', 26.25));
-cart.addItem(new Product('3', 'Feijão', 6.4));
-cart.addItem(new Product('4', 'Macarrão', 3.8));
-cart.addItem(new Product('5', 'Carne', 35.4));
-cart.addItem(new Product('6', 'Cerveja', 3.4));
-cart.addItem(new Product('7', 'Pão', 2.85));
-cart.addItem(new Product('8', 'Leite', 4.69));
-cart.addItem(new Product('9', 'Açucar', 14.25));
-cart.addItem(new Product('10', 'Sal', 1.4));
-cart.addItem(new Product('11', 'Óleo', 6.4));
+const products = [
+	{ id: '1', name: 'Café', price: 14.99 },
+	{ id: '2', name: 'Arroz', price: 26.25 },
+	{ id: '3', name: 'Feijão', price: 6.4 },
+	{ id: '4', name: 'Macarrão', price: 3.8 },
+	{ id: '5', name: 'Carne', price: 35.4 },
+	{ id: '6', name: 'Cerveja', price: 3.4 },
+	{ id: '7', name: 'Pão', price: 2.85 },
+	{ id: '8', name: 'Leite', price: 4.69 },
+	{ id: '9', name: 'Açucar', price: 14.25 },
+	{ id: '10', name: 'Sal', price: 1.4 },
+	{ id: '11', name: 'Óleo', price: 6.4 },
+];
+
+products.forEach((product) => {
+	cart.addItem(new Product(product.id, product.name, product.price));
+});
 
 console.log(order.total());
 console.log(order.totalWithDiscount());
