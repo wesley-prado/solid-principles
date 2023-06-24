@@ -14,7 +14,7 @@ export default class ShoppingCart implements IShoppingCart {
 		this._itens.push(item);
 	}
 
-	removeItem(id: string): ICartItem | null {
+	removeItem(id: string): ICartItem {
 		const index = this._itens.findIndex((item) => item.id === id);
 
 		if (index === -1) {

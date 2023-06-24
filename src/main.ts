@@ -33,6 +33,9 @@ products.forEach((product) => {
 	cart.addItem(new Product(product.id, product.name, product.price));
 });
 
+cart.removeItem('15');
+
+console.log(cart.items);
 console.log(order.total());
 console.log(order.totalWithDiscount());
 console.log(order.customerName);
