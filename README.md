@@ -1,6 +1,6 @@
 # Solid principles study project
 
-This project is a Typescript e-commerce system that includes several classes for managing products, shopping carts, orders, customers, and discounts.
+This project is a basic Typescript e-commerce system that includes several classes for managing orders, like a shopping cart, a customer, and an order repository. The project was developed as a study of the SOLID principles of object-oriented design.
 
 ## Classes
 
