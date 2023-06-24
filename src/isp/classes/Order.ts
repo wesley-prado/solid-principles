@@ -1,4 +1,4 @@
-import ShoppingCart from './ShoppingCart';
+import IShoppingCart from '../../dip/classes/interfaces/IShoppingCart';
 import { ICustomer } from './interfaces/ICustomer';
 
 enum CartStatus {
@@ -8,10 +8,10 @@ enum CartStatus {
 
 export default class Order {
 	private _cartStatus: CartStatus = CartStatus.OPEN;
-	private readonly _shoppingCart: ShoppingCart;
+	private readonly _shoppingCart: IShoppingCart;
 	private readonly _customer: ICustomer;
 
-	constructor(cart: ShoppingCart, customer: ICustomer) {
+	constructor(cart: IShoppingCart, customer: ICustomer) {
 		this._shoppingCart = cart;
 		this._customer = customer;
 	}
@@ -36,7 +36,7 @@ export default class Order {
 		return this._cartStatus;
 	}
 
-	get cart(): ShoppingCart {
+	get cart(): IShoppingCart {
 		return this._shoppingCart;
 	}
 

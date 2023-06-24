@@ -1,3 +1,3 @@
-export interface IObjectRepository {
-	save<T>(record: T): void;
+export interface IObjectRepository<T> {
+	save(record: T): void;
 }

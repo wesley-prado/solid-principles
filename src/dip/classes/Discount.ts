@@ -1,10 +1,12 @@
+import IDiscount from '../../isp/classes/interfaces/IDiscount';
+
 //Design pattern : Strategy
-export abstract class Discount {
+export abstract class Discount implements IDiscount {
 	constructor(protected readonly discount: number = 0) {}
 
-	calculate(price: number): number{
+	calculate(price: number): number {
 		return price - price * (this.discount / 100);
-	};
+	}
 }
 
 export class FiftyPercentDiscount extends Discount {

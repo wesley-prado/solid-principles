@@ -1,21 +1,21 @@
-import ShoppingCart from './ShoppingCart';
 import { ICustomer } from './interfaces/ICustomer';
-import OrderRepository from '../repository/OrderRepository';
+import IShoppingCart from './interfaces/IShoppingCart';
+import { IObjectRepository } from './interfaces';
 
-enum CartStatus {
+enum OrderStatus {
 	OPEN = 'open',
 	CLOSED = 'closed',
 }
 
 export default class Order {
-	private _cartStatus: CartStatus = CartStatus.OPEN;
-	private readonly _shoppingCart: ShoppingCart;
-	private readonly _repository: OrderRepository;
+	private _orderStatus: OrderStatus = OrderStatus.OPEN;
+	private readonly _shoppingCart: IShoppingCart;
+	private readonly _repository: IObjectRepository<Order>;
 	private readonly _customer: ICustomer;
 
 	constructor(
-		cart: ShoppingCart,
-		repository: OrderRepository,
+		cart: IShoppingCart,
+		repository: IObjectRepository<Order>,
 		customer: ICustomer
 	) {
 		this._shoppingCart = cart;
@@ -37,18 +37,18 @@ export default class Order {
 	}
 
 	private closeOrder(): void {
-		this._cartStatus = CartStatus.CLOSED;
+		this._orderStatus = OrderStatus.CLOSED;
 	}
 
 	private saveOrder(): void {
 		this._repository.save(this);
 	}
 
-	get status(): Readonly<CartStatus> {
-		return this._cartStatus;
+	get status(): Readonly<OrderStatus> {
+		return this._orderStatus;
 	}
 
-	get cart(): ShoppingCart {
+	get cart(): IShoppingCart {
 		return this._shoppingCart;
 	}
 
