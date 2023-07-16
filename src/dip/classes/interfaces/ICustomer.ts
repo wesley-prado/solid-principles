@@ -5,11 +5,11 @@ export interface ICustomer {
 	getIDN(): string;
 }
 
-export interface IPhysicalPersonCustomer {
+export type IPhysicalPersonCustomer = {
 	firstName: string;
 	lastName: string;
 	cpf: string;
-}
+} & ICustomer;
 
 export enum IndustryEnum {
 	IT = 'IT',
@@ -19,8 +19,8 @@ export enum IndustryEnum {
 	Education = 'Education',
 	Other = 'Other',
 }
-export interface ILegalPersonCustomer {
+export type ILegalPersonCustomer = {
 	fantasyName: string;
 	cnpj: string;
 	industry: IndustryEnum;
-}
+} & ICustomer;

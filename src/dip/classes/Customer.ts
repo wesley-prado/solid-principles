@@ -3,7 +3,7 @@ import {
 	IPhysicalPersonCustomer,
 	ILegalPersonCustomer,
 	IndustryEnum,
-} from './interfaces/ICustomer';
+} from './interfaces/';
 
 export class PhysicalPersonCustomer
 	implements ICustomer, IPhysicalPersonCustomer

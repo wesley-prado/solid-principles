@@ -1,8 +1,8 @@
-import Order from '../classes/Order';
+import { IOrder } from '../classes/interfaces/IOrder';
 import { IObjectRepository } from '../classes/interfaces';
 
-export default class OrderRepository implements IObjectRepository<Order> {
-	save<Order>(record: Order): void {
+export default class OrderRepository implements IObjectRepository<IOrder> {
+	save(record: IOrder): void {
 		console.log(`Record saved with success!`);
 		console.log({ record });
 	}

@@ -1,6 +1,6 @@
-import { ICartItem } from './ICartItem';
+import { ICartItem } from './';
 
-export default interface IShoppingCart {
+export interface IShoppingCart {
 	addItem(item: ICartItem): void;
 	removeItem(id: string): ICartItem | null;
 	total(): number;
