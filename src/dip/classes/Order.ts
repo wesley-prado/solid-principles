@@ -1,22 +1,18 @@
 import { ICustomer } from './interfaces/ICustomer';
 import IShoppingCart from './interfaces/IShoppingCart';
 import { IObjectRepository } from './interfaces';
+import { IOrder, OrderStatus } from './interfaces/IOrder';
 
-enum OrderStatus {
-	OPEN = 'open',
-	CLOSED = 'closed',
-}
-
-export default class Order {
+export default class Order implements IOrder {
 	private _orderStatus: OrderStatus = OrderStatus.OPEN;
 	private readonly _shoppingCart: IShoppingCart;
-	private readonly _repository: IObjectRepository<Order>;
+	private readonly _repository: IObjectRepository<IOrder>;
 	private readonly _customer: ICustomer;
 
 	constructor(
 		cart: IShoppingCart,
-		repository: IObjectRepository<Order>,
-		customer: ICustomer
+		repository: IObjectRepository<IOrder>,
+		customer: ICustomer,
 	) {
 		this._shoppingCart = cart;
 		this._repository = repository;
